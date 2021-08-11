@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.js"],"names":["document","addEventListener"],"mappings":";;AAAAA,QAAQ,CAACC,gBAAT,CAA0B,kBAA1B,EAA8C,YAAW,CAGxD,CAHD","file":"main.js","sourcesContent":["document.addEventListener('DOMContentLoaded', function() {\n\n    \n})"]}

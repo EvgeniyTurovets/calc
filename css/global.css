@@ -1,0 +1,76 @@
+:root {
+  --color-black: #000;
+  --color-white: #fff;
+  --bebas: 'Bebas Neue', sans-serif;
+  --swiper-navigation-size: 40px; }
+
+.custom-checkbox__field:checked + .custom-checkbox__content::after {
+  opacity: 1; }
+
+.custom-checkbox__field:focus + .custom-checkbox__content::before {
+  outline: 2px solid #f00;
+  outline-offset: 2px; }
+
+.custom-checkbox__field:disabled + .custom-checkbox__content {
+  opacity: 0.4;
+  pointer-events: none; }
+
+@font-face {
+  font-family: "OfficinaSansC";
+  src: url("../fonts/OfficinaSansBookITC-Regular.eot");
+  src: url("../fonts/OfficinaSansBookITC-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/OfficinaSansBookITC-Regular.woff2") format("woff2"), url("../fonts/OfficinaSansBookITC-Regular.woff") format("woff"), url("../fonts/OfficinaSansBookITC-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400; }
+
+html {
+  box-sizing: border-box; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body, html {
+  height: 100%; }
+
+img {
+  max-width: 100%; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  list-style: none;
+  padding: 0; }
+
+.is-outer {
+  position: relative !important;
+  left: -9999px !important; }
+
+.site-container {
+  overflow: hidden; }
+
+.is-hidden {
+  display: none !important; }
+
+.for-mobile {
+  display: none; }
+  @media (max-width: 768px) {
+    .for-mobile {
+      display: block; } }
+
+.error {
+  border: 2px #ff4019 solid !important; }
+
+.btn-reset {
+  border: none;
+  background: transparent;
+  cursor: pointer; }
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none; }
+
+input:focus {
+  outline: none; }
+
+/*# sourceMappingURL=global.css.map */
