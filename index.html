@@ -20,14 +20,14 @@
     <div class="wrap">
         <h1 class="title">
             Калькулятор Своё дело.<br>
-КАСКО
+            КАСКО
         </h1>
 
-        <div class="calc">
+        <form class="calc" id="form1">
             <label class="label">Вид ТС</label>
-            <div class="calc__wrap">
+            <div class="calc__wrap" id="form1__typeInput">
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" name="1" checked value="1.8">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
                 </label>
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" name="1" value="2.5">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@
                 </label>
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" name="1" value="1">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="18" viewBox="0 0 32 18" fill="none">
@@ -72,7 +72,7 @@
                 </label>
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" name="1" value="4">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="15" viewBox="0 0 32 15" fill="none">
@@ -94,7 +94,7 @@
             <label class="label">Вариант страховых рисков</label>
             <div class="variant__wrap">
                 <label class="variant__item">
-                    <input type="radio" name="2">
+                    <input type="radio" name="2" value="0" checked class="form1__type">
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                         Ущерб + хищение
@@ -104,14 +104,14 @@
                             </svg>
                                 
                             <div class="info__wrap">
-                                Всплывающая подсказка с коротким пояснием
+                                Cтихийные бедствия + ДТП по вине третьих лиц
                             </div>
                         </div>
                     </div>
                 </label>
 
                 <label class="variant__item">
-                    <input type="radio" name="2">
+                    <input type="radio" name="2" value="1" class="form1__type">
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                         Ущерб
@@ -121,7 +121,7 @@
                             </svg>
                                 
                             <div class="info__wrap">
-                                Всплывающая подсказка с коротким пояснием
+                                ДТП по вине третьих лиц
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,13 @@
             <label class="label label2">
                 Страховая сумма на ТС
             </label>
-            <input type="text" class="input" placeholder="543 543 рублей">
+            <div class="form-group">
+                <input type="number" id="price" class="input" name="st-suma" 
+                data-pristine-required 
+                data-pristine-required-message="Это обязательное поле" 
+                data-pristine-my-range="0,2000000"
+                placeholder="543 543 рублей">
+            </div>
 
             <div class="calc__row flex-end">
                 <div class="calc__row__col">
@@ -169,19 +175,32 @@
             <label class="label label2">
                 ИНН
             </label>
-            <input type="text" class="input" placeholder="344324 5434234 ">
-
+            <div class="form-group">
+                <input type="text" class="input" data-pristine-required  
+                data-pristine-required-message="Это обязательное поле" placeholder="344324 5434234 ">
+            </div>
+        
             <div class="calc__row">
                 <div class="calc__row__col">
                     <label class="label label2">Телефон</label>
-                    <input placeholder="+7 ()" class="input error">
-                    <div class="error__text">
-                        Телефон указан неверно
+                    <div class="form-group">
+                        <input name="phone" placeholder="+7 ()" 
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        data-pristine-my-range2
+                        class="input phone">
                     </div>
                 </div>
                 <div class="calc__row__col">
                     <label class="label label2">E-mail</label>
-                    <input placeholder="info@info.ru" class="input">
+                    <div class="form-group">
+                        <input placeholder="info@info.ru" name="email" 
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        data-pristine-email="email" 
+                        data-pristine-email-message="Не верно веден E-mail" 
+                        class="input">
+                    </div>
                 </div>
             </div>
 
@@ -193,7 +212,9 @@
                     <div class="calc__price">
                         <div class="calc__price__total-text">Итоговая страховая премия</div>
                         <div class="calc__price__val">
-                            <span>2343
+                            <input type="hidden" id="total-input">
+                            <span>
+                                <span id="total">2343</span>
                                 <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.4167 35.8753H17.8334V30.7503H28.0834V27.3337H17.8334V23.917H25.5209C30.2308 23.917 34.0626 20.0852 34.0626 15.3753C34.0626 10.6655 30.2308 6.83368 25.5209 6.83368H16.1251C15.672 6.83368 15.2375 7.01366 14.9171 7.33404C14.5967 7.65441 14.4167 8.08893 14.4167 8.54201V20.5003H9.29175V23.917H14.4167V27.3337H9.29175V30.7503H14.4167V35.8753ZM17.8334 10.2503H25.5209C28.3465 10.2503 30.6459 12.5498 30.6459 15.3753C30.6459 18.2009 28.3465 20.5003 25.5209 20.5003H17.8334V10.2503Z" fill="black"/>
                                 </svg>
@@ -206,7 +227,7 @@
                                 </svg>
                                     
                                 <div class="info__wrap">
-                                    Всплывающая подсказка с коротким пояснием
+                                    Итоговый страховой тариф по договору страхования определяется после получения от клиента заполненного заявления на страхование c указанными условиями перевозки груза
                                 </div>
                             </div>
                         </div>
@@ -226,9 +247,10 @@
                    
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
+<script src="./js/vendor.js"></script>
+<script src="./js/main.js"></script>
 </body>
 
 </html>

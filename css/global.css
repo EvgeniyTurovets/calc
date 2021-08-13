@@ -59,9 +59,6 @@ ul {
     .for-mobile {
       display: block; } }
 
-.error {
-  border: 2px #ff4019 solid !important; }
-
 .btn-reset {
   border: none;
   background: transparent;
