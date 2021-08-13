@@ -26,9 +26,9 @@
         <form class="calc" id="form3">
             
             <label class="label">Варианты страхового риска</label>
-            <div class="variant__wrap">
+            <div class="variant__wrap" id="form3Variat">
                 <label class="variant__item">
-                    <input type="radio" name="2" checked>
+                    <input type="radio" value="0" name="2" checked>
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                         С ответственностью
@@ -38,7 +38,7 @@
                 </label>
 
                 <label class="variant__item">
-                    <input type="radio" name="2">
+                    <input type="radio" value="1" name="2">
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                         С ответственностью
@@ -51,13 +51,20 @@
             <hr style="margin-bottom: 0;">
 
             <label class="label label2">Стоимость груза</label>
-            <input class="input center" placeholder="543 543 рублей">
+            <div class="form-group">
+                <input class="input center" id="price" placeholder="543 543 рублей"
+                data-pristine-required  
+                data-pristine-required-message="Это обязательное поле"
+                data-pristine-my-range="0,10000000000"
+                >
+            </div>
+            
 
             <label class="label label2">По условиям доставки требуется страхование на 110%
                 стоимости</label>
             <div class="variant__wrap">
                 <label class="variant__item">
-                    <input type="radio" name="3" checked>
+                    <input type="radio" id="varian110" name="3" checked>
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                        Да
@@ -76,33 +83,63 @@
             <hr>
 
             <label class="label label2">Пункт отправления</label>
-            <input class="input center" placeholder="Москва">
+            <div class="form-group">
+                <input class="input center" maxlength="255" placeholder="Москва"
+                data-pristine-required  
+                data-pristine-required-message="Это обязательное поле"
+                >
+            </div>
+            
 
             <label class="label label2">Пункт назначения</label>
-            <input class="input center" placeholder="Волгоград">
+            <div class="form-group">
+                <input class="input center" maxlength="255" placeholder="Волгоград"
+                data-pristine-required  
+                data-pristine-required-message="Это обязательное поле"
+                >
+            </div>
+            
 
             <label class="label label2">Даты</label>
             <div class="data-wrap">
                 <div class="data-wrap__col">
                     <span>С</span>
-                    <input class="input" placeholder="дд/мм/гг">
+                    <div class="form-group">
+                        <input class="input" placeholder="дд/мм/гг"
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        >
+                    </div>
+                    
                 </div>
                 <div class="data-wrap__col">
                     <span>По</span>
-                    <input class="input" placeholder="дд/мм/гг">
+                    <div class="form-group">
+                        <input class="input" placeholder="дд/мм/гг"
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        >
+                    </div>
                 </div>
             </div>
 
             <label class="label label2">Страховая сумма</label>
-            <input class="input center" placeholder="543 543 рублей">
+            <div class="form-group">
+                <input class="input center" placeholder="543 543 рублей"
+                data-pristine-required  
+                data-pristine-required-message="Это обязательное поле"
+                data-pristine-my-range="0,15000000"
+                >
+            </div>
+            
 
             <hr>
 
             <label class="label">Вид транспорта для перевозки</label>
-            <div class="calc__wrap calc__wrap2">
+            <div class="calc__wrap calc__wrap2" id="form3__typeInputs">
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" value="0.0012" name="1" checked>
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <img class="not-hover" src="./img/1.png">
@@ -114,7 +151,7 @@
 
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" value="0.0009" name="1">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <img class="not-hover" src="./img/2.png">
@@ -125,7 +162,7 @@
                 </label>
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" value="0.0005" name="1">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <img class="not-hover" src="./img/4.png">
@@ -136,7 +173,7 @@
                 </label>
 
                 <label class="calc__wrap__item">
-                    <input type="radio" name="1">
+                    <input type="radio" value="0.0007" name="1">
                     <div class="calc__wrap__con">
                         <div class="calc__wrap__icon">
                             <img class="not-hover" src="./img/3.png">

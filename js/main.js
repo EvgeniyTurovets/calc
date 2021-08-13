@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var coef = document.getElementById('form1__typeInput').querySelector('input:checked').value;
       var price = document.getElementById('price').value;
       var totalPrice = coef / 100 * price;
-      totalPrice = Math.floor(totalPrice);
+      totalPrice = totalPrice.toFixed(2);
       total.textContent = totalPrice;
       totalInput.setAttribute('value', totalPrice);
     };
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var coef = 0.13;
       var count = document.querySelectorAll('.form2__row').length;
       var totalPrice = price * coef * count;
-      totalPrice = Math.floor(totalPrice);
+      totalPrice = totalPrice.toFixed(2);
       _total.textContent = totalPrice;
 
       _totalInput.setAttribute('value', totalPrice);
@@ -130,9 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var addTechF = function addTechF() {
       var count = document.querySelectorAll('.form2__row').length;
       var htmlBlockClone = htmlBlock.cloneNode(true);
-      htmlBlockClone.querySelectorAll('.calc__wrap__item input').forEach(function (el) {
-        el.setAttribute('name', count + 1);
-      });
 
       if (count <= 4) {
         document.querySelector('.form2__row-wrap').appendChild(htmlBlockClone);
@@ -162,7 +159,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   if (document.getElementById('form3')) {
-    console.log('1');
+    var _total2 = document.getElementById('total');
+
+    var _totalInput2 = document.getElementById('total-input');
+
+    var form3Variats = document.getElementById('form3Variat').querySelectorAll('input');
+    var form3__type__arr = [[0.0012, 0.0009, 0.0005, 0.0007], [0.002, 0.0017, 0.0013, 0.0015]];
+    var form3__typeInputs = document.getElementById('form3__typeInputs').querySelectorAll('input');
+    form3Variats.forEach(function (el) {
+      return el.addEventListener('change', function () {
+        refreshCoef3(el);
+      });
+    }); // Изменить кофициенты
+
+    var refreshCoef3 = function refreshCoef3(el) {
+      var val = el.getAttribute('value');
+      form3__typeInputs.forEach(function (input, index) {
+        input.setAttribute('value', form3__type__arr[val][index]);
+      });
+
+      _formCounter2();
+    };
+
+    var _formCounter2 = function _formCounter2() {
+      var price = document.getElementById('price').value;
+      var coef110 = 1;
+
+      if (document.getElementById('varian110').checked) {
+        coef110 = 1.1;
+      }
+
+      var coef = document.getElementById('form3__typeInputs').querySelector('input:checked').value;
+      var totalPrice = price * coef110 * coef;
+      totalPrice = totalPrice.toFixed(2);
+      _total2.textContent = totalPrice;
+
+      _totalInput2.setAttribute('value', totalPrice);
+    };
+
+    _formCounter2();
+
+    form.querySelectorAll('input').forEach(function (el) {
+      return el.addEventListener('change', function () {
+        _formCounter2();
+      });
+    });
+    form.querySelectorAll('input').forEach(function (el) {
+      return el.addEventListener('input', function () {
+        _formCounter2();
+      });
+    });
   }
 });
 //# sourceMappingURL=main.js.map
