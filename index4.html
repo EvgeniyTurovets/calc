@@ -20,15 +20,15 @@
     <div class="wrap">
         <h1 class="title">
             Калькулятор Своё дело.<br>
-Грузоперевозки
+            Грузоперевозки
         </h1>
 
-        <div class="calc">
+        <form class="calc" id="form3">
             
             <label class="label">Варианты страхового риска</label>
             <div class="variant__wrap">
                 <label class="variant__item">
-                    <input type="radio" name="2">
+                    <input type="radio" name="2" checked>
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                         С ответственностью
@@ -57,7 +57,7 @@
                 стоимости</label>
             <div class="variant__wrap">
                 <label class="variant__item">
-                    <input type="radio" name="3">
+                    <input type="radio" name="3" checked>
                     <div class="variant__item__wrap">
                         <div class="variant__item__icon"></div>
                        Да
@@ -149,20 +149,35 @@
 
             <hr>
 
-            <label class="label label2">ИНН</label>
-            <input class="input" placeholder="344324 5434234 ">
+            <label class="label label2">
+                ИНН
+            </label>
+            <div class="form-group">
+                <input type="number" class="input" data-pristine-required  
+                data-pristine-required-message="Это обязательное поле" placeholder="344324 5434234 ">
+            </div>
 
             <div class="calc__row">
                 <div class="calc__row__col">
                     <label class="label label2">Телефон</label>
-                    <input placeholder="+7 ()" class="input error">
-                    <div class="error__text">
-                        Телефон указан неверно
+                    <div class="form-group">
+                        <input name="phone" placeholder="+7 ()" 
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        data-pristine-my-range2
+                        class="input phone">
                     </div>
                 </div>
                 <div class="calc__row__col">
                     <label class="label label2">E-mail</label>
-                    <input placeholder="info@info.ru" class="input">
+                    <div class="form-group">
+                        <input placeholder="info@info.ru" name="email" 
+                        data-pristine-required  
+                        data-pristine-required-message="Это обязательное поле"
+                        data-pristine-email="email" 
+                        data-pristine-email-message="Не верно веден E-mail" 
+                        class="input">
+                    </div>
                 </div>
             </div>
 
@@ -174,7 +189,9 @@
                     <div class="calc__price">
                         <div class="calc__price__total-text">Итоговая страховая премия</div>
                         <div class="calc__price__val">
-                            <span>2343
+                            <input type="hidden" id="total-input">
+                            <span>
+                                <span id="total">2343</span>
                                 <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.4167 35.8753H17.8334V30.7503H28.0834V27.3337H17.8334V23.917H25.5209C30.2308 23.917 34.0626 20.0852 34.0626 15.3753C34.0626 10.6655 30.2308 6.83368 25.5209 6.83368H16.1251C15.672 6.83368 15.2375 7.01366 14.9171 7.33404C14.5967 7.65441 14.4167 8.08893 14.4167 8.54201V20.5003H9.29175V23.917H14.4167V27.3337H9.29175V30.7503H14.4167V35.8753ZM17.8334 10.2503H25.5209C28.3465 10.2503 30.6459 12.5498 30.6459 15.3753C30.6459 18.2009 28.3465 20.5003 25.5209 20.5003H17.8334V10.2503Z" fill="black"/>
                                 </svg>
@@ -187,7 +204,7 @@
                                 </svg>
                                     
                                 <div class="info__wrap">
-                                    Всплывающая подсказка с коротким пояснием
+                                    Итоговый страховой тариф по договору страхования определяется после получения от клиента заполненного заявления на страхование c указанными условиями перевозки груза
                                 </div>
                             </div>
                         </div>
@@ -207,9 +224,10 @@
                    
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
+<script src="./js/vendor.js"></script>
+<script src="./js/main.js"></script>
 </body>
 
 </html>

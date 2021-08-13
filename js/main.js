@@ -157,6 +157,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     };
+  } // Калькулятор Своё дело.
+  // Грузоперевозки
+
+
+  if (document.getElementById('form3')) {
+    console.log('1');
   }
 });
 //# sourceMappingURL=main.js.map
