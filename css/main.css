@@ -429,7 +429,14 @@ hr {
   width: 100%;
   text-align: center;
   max-width: 363px;
-  margin-top: 0; }
+  margin-top: 0;
+  display: none; }
+
+.calc-add.max .error__text {
+  display: block; }
+
+.calc-add.max span, .calc-add.max button {
+  display: none; }
 
 .data-wrap {
   display: flex;
@@ -510,5 +517,23 @@ hr {
       margin-bottom: 25px; }
     .calc__bottom__row2 .calc__price:last-child {
       margin-bottom: 0; } }
+
+.form2__row {
+  position: relative; }
+  .form2__row .delete {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    padding: 2px;
+    transition: 0.1s all; }
+  .form2__row .delete:hover svg {
+    transform: scale(1.1); }
+
+.form2__row:first-child .delete {
+  display: none; }
+
+.form2__row-wrap.active .form2__row:first-child .delete {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */

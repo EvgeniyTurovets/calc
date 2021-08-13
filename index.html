@@ -141,25 +141,51 @@
                 placeholder="543 543 рублей">
             </div>
 
-            <div class="calc__row flex-end">
+            <div class="calc__row">
                 <div class="calc__row__col">
-                    <label class="label label2">Марка, модель ТС</label>
-                    <input placeholder="LADA 2112" class="input">
+                    <label class="label label2">
+                        <br>
+                        Марка, модель ТС</label>
+                    <div class="form-group">
+                        <input placeholder="LADA 2112" class="input"
+                            data-pristine-required 
+                            data-pristine-required-message="Это обязательное поле" 
+                        >
+                    </div>
+                    
                 </div>
                 <div class="calc__row__col">
                     <label class="label label2">Гос. регистрационный
                         знак</label>
-                    <input placeholder="Г 432 ОС 123 RUS" class="input">
+                    <div class="form-group">
+                        <input placeholder="Г 432 ОС 123 RUS" class="input"
+                            data-pristine-required 
+                            data-pristine-required-message="Это обязательное поле" 
+                        >
+                    </div>
+                    
                 </div>
             </div>
             <div class="calc__row">
                 <div class="calc__row__col">
                     <label class="label label2">VIN кузова №</label>
-                    <input placeholder="32154534341" class="input">
+                    <div class="form-group">
+                        <input placeholder="32154534341" class="input"
+                        data-pristine-required 
+                        data-pristine-required-message="Это обязательное поле" 
+                        >
+                    </div>
+                    
                 </div>
                 <div class="calc__row__col">
                     <label class="label label2">Год выпуска ТС</label>
-                    <input placeholder="2012" class="input">
+                    <div class="form-group">
+                        <input placeholder="2012" class="input"
+                        data-pristine-required 
+                        data-pristine-required-message="Это обязательное поле" 
+                        >
+                    </div>
+                    
                 </div>
             </div>
 
@@ -167,7 +193,13 @@
                 ПТС или свидетельство о регистрации
                 (номер, дата)
             </label>
-            <input type="text" class="input" placeholder="5437653">
+            <div class="form-group">
+                <input type="number" class="input" placeholder="5437653"
+                data-pristine-required 
+                data-pristine-required-message="Это обязательное поле" 
+                >
+            </div>
+            
 
             <hr>
 
@@ -176,7 +208,7 @@
                 ИНН
             </label>
             <div class="form-group">
-                <input type="text" class="input" data-pristine-required  
+                <input type="number" class="input" data-pristine-required  
                 data-pristine-required-message="Это обязательное поле" placeholder="344324 5434234 ">
             </div>
         
