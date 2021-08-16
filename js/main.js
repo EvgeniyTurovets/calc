@@ -209,6 +209,155 @@ document.addEventListener('DOMContentLoaded', function () {
         _formCounter2();
       });
     });
+    Datepicker.locales.ru = {
+      days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+      daysShort: ["Вск", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Суб"],
+      daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+      months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+      monthsShort: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+      today: "Сегодня",
+      clear: "Очистить",
+      format: "dd.mm.yyyy",
+      weekStart: 1,
+      monthsTitle: 'Месяцы'
+    };
+    var elem = document.getElementById('foo');
+    var rangepicker = new DateRangePicker(elem, {
+      language: 'ru'
+    });
+  } // Калькулятор Умный фермер
+  // Мониторинг рождения телят
+
+
+  if (document.getElementById('form4')) {
+    // пересчет цен за голову
+    var inputZagolovu;
+
+    var initInputZagolovu = function initInputZagolovu() {
+      inputZagolovu = document.querySelectorAll('.form4__za-golovu input');
+      inputZagolovu.forEach(function (el) {
+        return el.addEventListener('input', function () {
+          countPrice(el);
+
+          _formCounter3();
+        });
+      });
+    };
+
+    initInputZagolovu();
+
+    var countPrice = function countPrice(el) {
+      var val = el.value;
+      el.closest('.form4__za-golovu').querySelector('.premia').textContent = val * 0.25;
+    }; // Добавление блока
+
+
+    var form4__wrap = document.querySelector('.form4__wrap');
+    var form4__wrap__row = document.querySelector('.form4__wrap__row');
+    var addForm4Row = document.getElementById('add-form4-row');
+    addForm4Row.addEventListener('click', function () {
+      var clone = form4__wrap__row.cloneNode(true);
+      form4__wrap.appendChild(clone);
+      initInputZagolovu();
+
+      _formCounter3();
+
+      pristine = new Pristine(form, {
+        classTo: 'form-group',
+        errorClass: 'error',
+        successClass: 'has-success',
+        // class of the parent element where error text element is appended
+        errorTextParent: 'form-group',
+        // type of element to create for the error text
+        errorTextTag: 'div',
+        // class of the error text element
+        errorTextClass: 'error__text'
+      });
+    }); // Пересчет общей цены
+
+    var total4__sum = document.getElementById('total4__sum');
+    var total4__sum2 = document.getElementById('total4__sum2');
+
+    var _formCounter3 = function _formCounter3() {
+      var totalSum = 0;
+      inputZagolovu.forEach(function (el) {
+        totalSum = totalSum + Number(el.value);
+        total4__sum.textContent = totalSum.toFixed(2);
+      });
+      var premiaSum = 0;
+      var premia = document.querySelectorAll('.premia');
+      premia.forEach(function (el) {
+        premiaSum = premiaSum + Number(el.textContent);
+        total4__sum2.textContent = premiaSum.toFixed(2);
+      });
+    };
+
+    _formCounter3();
+  }
+
+  if (document.getElementById('form5')) {
+    // крс
+    var krsCount = document.getElementById('krsCount');
+    var krsZa1 = document.getElementById('krsZa1');
+    var krsSum = document.getElementById('krsSum');
+    var krsPrem = document.getElementById('krsPrem');
+
+    var krsPremCount = function krsPremCount() {
+      krsPrem.textContent = krsSum.value * 0.25;
+
+      _formCounter4();
+    };
+
+    krsSum.addEventListener('input', function () {
+      if (krsCount.value < 1) {
+        krsCount.value = 1;
+      }
+
+      krsZa1.value = krsSum.value / krsCount.value;
+      krsPremCount();
+    });
+    krsCount.addEventListener('input', function () {
+      krsSum.value = krsZa1.value * krsCount.value;
+      krsPremCount();
+    });
+    krsZa1.addEventListener('input', function () {
+      krsSum.value = krsZa1.value * krsCount.value;
+      krsPremCount();
+    }); // мрс
+
+    var mrsCount = document.getElementById('mrsCount');
+    var mrsZa1 = document.getElementById('mrsZa1');
+    var mrsSum = document.getElementById('mrsSum');
+    var mrsPrem = document.getElementById('mrsPrem');
+
+    var mrsPremCount = function mrsPremCount() {
+      mrsPrem.textContent = mrsSum.value * 0.25;
+
+      _formCounter4();
+    };
+
+    mrsSum.addEventListener('input', function () {
+      if (mrsCount.value < 1) {
+        mrsCount.value = 1;
+      }
+
+      mrsZa1.value = mrsSum.value / mrsCount.value;
+      mrsPremCount();
+    });
+    mrsCount.addEventListener('input', function () {
+      mrsSum.value = mrsZa1.value * mrsCount.value;
+      mrsPremCount();
+    });
+    mrsZa1.addEventListener('input', function () {
+      mrsSum.value = mrsZa1.value * mrsCount.value;
+      mrsPremCount();
+    });
+
+    var _formCounter4 = function _formCounter4() {
+      form5total.textContent = Number(krsPrem.textContent) + Number(mrsPrem.textContent);
+    };
+
+    _formCounter4();
   }
 });
 //# sourceMappingURL=main.js.map
