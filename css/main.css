@@ -521,21 +521,26 @@ hr {
       margin-bottom: 0; } }
 
 .form2__row {
-  position: relative; }
-  .form2__row .delete {
-    position: absolute;
-    top: 15px;
-    right: 0px;
-    cursor: pointer;
-    padding: 2px;
-    transition: 0.1s all; }
-  .form2__row .delete:hover svg {
-    transform: scale(1.1); }
+  position: relative;
+  flex-wrap: wrap; }
 
-.form2__row:first-child .delete {
+.form2__row:first-child .form2__delete {
   display: none; }
 
-.form2__row-wrap.active .form2__row:first-child .delete {
-  display: block; }
+.form2__delete {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  width: 100%;
+  padding: 0 13px; }
+  .form2__delete button {
+    font-size: 18px;
+    line-height: 20px;
+    color: #EB1D29;
+    padding: 10px 17px;
+    background: #FFFFFF;
+    border: 1px solid #EB1D29;
+    border-radius: 5px;
+    cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */
