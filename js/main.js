@@ -303,25 +303,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var krsPrem = document.getElementById('krsPrem');
 
     var krsPremCount = function krsPremCount() {
-      krsPrem.textContent = krsSum.value * 0.25;
+      krsPrem.textContent = krsSum.textContent * 0.25;
 
       _formCounter4();
     };
 
-    krsSum.addEventListener('input', function () {
-      if (krsCount.value < 1) {
-        krsCount.value = 1;
-      }
-
-      krsZa1.value = krsSum.value / krsCount.value;
-      krsPremCount();
-    });
     krsCount.addEventListener('input', function () {
-      krsSum.value = krsZa1.value * krsCount.value;
+      krsSum.textContent = krsZa1.value * krsCount.value;
       krsPremCount();
     });
     krsZa1.addEventListener('input', function () {
-      krsSum.value = krsZa1.value * krsCount.value;
+      krsSum.textContent = krsZa1.value * krsCount.value;
       krsPremCount();
     }); // мрс
 
@@ -331,25 +323,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var mrsPrem = document.getElementById('mrsPrem');
 
     var mrsPremCount = function mrsPremCount() {
-      mrsPrem.textContent = mrsSum.value * 0.25;
+      mrsPrem.textContent = mrsSum.textContent * 0.25;
 
       _formCounter4();
     };
 
-    mrsSum.addEventListener('input', function () {
-      if (mrsCount.value < 1) {
-        mrsCount.value = 1;
-      }
-
-      mrsZa1.value = mrsSum.value / mrsCount.value;
-      mrsPremCount();
-    });
     mrsCount.addEventListener('input', function () {
-      mrsSum.value = mrsZa1.value * mrsCount.value;
+      mrsSum.textContent = mrsZa1.value * mrsCount.value;
       mrsPremCount();
     });
     mrsZa1.addEventListener('input', function () {
-      mrsSum.value = mrsZa1.value * mrsCount.value;
+      mrsSum.textContent = mrsZa1.value * mrsCount.value;
       mrsPremCount();
     });
 

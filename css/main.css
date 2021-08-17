@@ -543,4 +543,45 @@ hr {
     border-radius: 5px;
     cursor: pointer; }
 
+.calc__row-wrap .calc__row-item {
+  cursor: pointer;
+  margin-bottom: 30px;
+  display: block; }
+
+.calc__row-wrap .calc__row-item input {
+  display: none; }
+
+.calc__row-wrap .calc__row-item input + .calc__wrap__con {
+  font-size: 22px;
+  line-height: 25px;
+  display: flex;
+  align-items: center; }
+
+.calc__row-wrap .calc__row-item input + .calc__wrap__con span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border: 1px solid #CBCBCB;
+  border-radius: 100%;
+  margin-right: 15px; }
+
+.calc__row-wrap .calc__row-item input:checked + .calc__wrap__con span:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #76AF58;
+  display: block;
+  border-radius: 100%; }
+
+.calc__row-wrap .calc__row-item input:checked + .calc__wrap__con span {
+  border: 1px solid #76AF58; }
+
+@media (max-width: 559px) {
+  .calc__row-wrap .calc__row-item input + .calc__wrap__con {
+    font-size: 18px;
+    line-height: 24px; } }
+
 /*# sourceMappingURL=main.css.map */
